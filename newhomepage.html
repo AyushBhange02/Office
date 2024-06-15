@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>BE +++</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        :root {
+            --bg-color: #191f36;
+            --snd-bg-color: #262840;
+            --text-color: #fff;
+            --main-color: #59B2F4;
+            /* Example main color */
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-color);
+            padding: 2rem 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            font-weight: 700;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--text-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--main-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: darken(var(--main-color), 10%);
+        }
+
+        .home-content {
+            text-align: left;
+            margin-top: 5rem;
+        }
+
+        .social-media a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 1rem;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-size: 700;
+            line-height: 1.3;
+
+        }
+
+        .home-img img {
+            width: 25vm;
+            height: auto;
+            max-width: 400px;
+            animation: floatImage 4s ease-in-out infinite;
+            border-radius: 2000%;
+        }
+
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2.4rem);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 20px;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--snd-bg-color);
+            box-shadow: 0 0 1rem var(--main-colo);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border: .2rem solid var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--text-color);
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: var(--snd-bg-color);
+        }
+
+        .about-img img {
+            width: 35vw;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.2;
+            font-size: 4rem;
+            padding: 20px;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .about-img img {
+            border-radius: 20px;
+            width: 25vm;
+            height: auto;
+            max-width: 400px;
+        }
+
+        /* Service section css */
+        .services h2 {
+            font-size: 2.6rem;
+            margin: 2rem 0 3rem;
+            text-align: left;
+        }
+
+        .services-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: auto;
+            /* Allows wrapping to new lines on smaller screens */
+        }
+
+        .services-box {
+            background: var(--snd-bg-color);
+            padding: 3rem 2rem 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+            flex: 1 1 calc(30.333% - 10px);
+            /* Adjusts the width and allows flex */
+            box-sizing: border-box;
+            margin: 10px;
+        }
+
+        .services-container .services-box:hover {
+            border-color: rgb(61, 80, 121);
+            transform: scale(1.02);
+        }
+
+        .services-box i {
+            font-size: 7rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        .services-box h3 {
+            font-size: 2 .6rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-box p {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .services-box .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--main-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .services-box .btn:hover {
+            background: darken(var(--main-color), 10%);
+        }
+
+        .projects {
+            background: var(--snd-bg-color);
+        }
+
+        .projects h2 {
+            font-size: 6rem;
+            margin-bottom: 4rem;
+
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .projects-container .projects-box {
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem var(--bg-color);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .projects-box img {
+            width: 100%;
+            transition: .5s ease;
+            opacity: 0.7;
+        }
+
+        .projects-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .projects-box .projects-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgb(0, 0, 0, 0.1)var(--main-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 4rem;
+            transform: translateY(100%);
+            transition: .5s ease;
+
+        }
+
+        .projects-box:hover .projects-layer {
+            transform: translateY(0);
+        }
+
+        .projects-layer h4 {
+            font-size: 3rem;
+        }
+
+        .projects-layer p {
+            font-size: 1.6rem;
+            margin: .3rem 0 1rem;
+        }
+
+        .projects-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+
+        .projects-layer a i {
+            font-size: 2rem;
+            color: var(--snd-bg-color);
+        }
+
+        /* here is a contact css */
+
+        .contact h2 {
+            font-size: 6rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact form .input-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact form .input-box input,
+        .contact form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--snd-bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+        }
+
+        .contact form .input-box input {
+            width: 49%;
+        }
+
+        .contact form textarea {
+            resize: nonw;
+        }
+
+        .contact form .btn {
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        /* there is footer css */
+
+        .footer {
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            padding: 2rem 9%;
+            background: var(--snd-bg-color);
+
+        }
+
+        .footer-text {
+            font-size: 1.6rem;
+        }
+
+        .footer-iconTop {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem 1rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTop a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-iconTop a i {
+            font-size: 2.4rem;
+            color: var(--snd-bg-color);
+        }
+
+        @media(max-width: 1200px) {
+            html {
+                font: size 55%;
+            }
+        }
+
+        @media(max-width:991px) {
+            .header {
+                padding: 2rem 3%;
+            }
+
+            section {
+                padding: 10rem 3%;
+            }
+
+            .services {
+                padding: 7rem;
+            }
+
+            .projects {
+                padding-bottom: 7rem;
+            }
+
+            .contact {
+                min-height: auto;
+            }
+
+            .footer {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media(max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background-color: var(--bg-color);
+                border-top: .1rem solid rgb(0, 0, 0, .2);
+                box-shadow: 0. 5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+
+            .navbar.active {
+                display: block;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+
+            .home {
+                flex-direction: column;
+            }
+
+            .home-content h3 {
+                font-size: 5rem;
+            }
+
+            .home-content h1 {
+                font-size: 5rem;
+            }
+
+            .home-content {
+                order: 2;
+            }
+
+            .home-img img {
+                width: 70vw;
+                /* margin-top:4rem; */
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-img img {
+                width: 90vw;
+                margin-top: 4rem;
+            }
+
+            .services h2 {
+                margin-bottom: 3rem;
+            }
+
+            .projects h2 {
+                margin-bottom: 3rem;
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 617px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .home-img img {
+                width: 80vw;
+                margin-top: 4rem;
+            }
+
+            .about-img img {
+                width: 80vw;
+                margin-top: 4rem;
+            }
+        }
+
+        @media(max-width: 450px) {
+            .html {
+                font-size: 50%;
+            }
+
+            .contact form .input-box input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <!-- Home Section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi, Myself</h3>
+            <h1>Ayush Bhange</h1>
+            <h3>I'm a <span class="multiple-text"></span></h3>
+            <p>The float-right-sm class will float right on screens that are equal to or LESS THAN 768px.<br> The
+                float-right-lg will float right on screens that are equal to or GREATER THAN 769px.<br> Note that we
+                also use a clearfix to clear floats.</p>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="#" class="btn">Resume</a>
+        </div>
+
+        <div class="home-img">
+            <img src="https://img.freepik.com/free-photo/view-3d-businessman_23-2150709814.jpg?size=626&ext=jpg&ga=GA1.1.1552934852.1718386198&semt=ais_user"
+                alt="Profile Picture">
+        </div>
+    </section>
+    <!-- About Section design -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://media.istockphoto.com/vectors/testing-games-concept-isometric-man-wearing-virtual-reality-headset-vector-id966636802?k=6&m=966636802&s=612x612&w=0&h=XVvgQ-bi6Pb1ya9_j9cRPzoazjUwSPAUg1K9q9QTXCE="
+                alt="ayush">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About<span> Me</span></h2>
+            <h3>FullStack Developer</h3>
+            <p>A full-stack developer is a developer or engineer who can build both the front end and the back end of a
+                website. The front end (the parts of a website a user sees and interacts with) and the back end (the
+                behind-the-scenes data storage and processing) require different skill sets.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+    <!-- Services Section design -->
+    <section class="services" id="services">
+        <h2 class="heading">My<span> Services</span></h2>
+
+        <div class="services-container">
+            <div class="services-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Calculator provides simple and advanced mathematical functions in a beautifully designed app. •
+                    Perform basic calculations such as addition, subtraction, multiplication, and division </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="services-box">
+                <i class="fa-solid fa-palette"></i>
+                <h3>UI/UX Testing</h3>
+                <p>Calculator provides simple and advanced mathematical functions in a beautifully designed app. •
+                    Perform basic calculations such as addition, subtraction, multiplication, and division </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="services-box">
+                <i class="fa-brands fa-android"></i>
+                <h3>Manual Testing</h3>
+                <p>Calculator provides simple and advanced mathematical functions in a beautifully designed app. •
+                    Perform basic calculations such as addition, subtraction, multiplication, and division </p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+        </div>
+    </section>
+    <!-- Portfolio Section design -->
+    <section class="projects" id="projects">
+        <h2 class="heading">My<span> projects</span></h2>
+        <div class="projects-container">
+            <div class="projects-box">
+                <img src="https://media.istockphoto.com/id/1501103626/photo/defocused-background-image-of-a-spacious-hallway-in-a-modern-office.webp?b=1&s=170667a&w=0&k=20&c=3HUg5TdHHWq4rmYJ7lA0Jn9koAesfCrO4lFiEaUFKuI="
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+
+            <div class="projects-box">
+                <img src="https://t3.ftcdn.net/jpg/05/79/48/50/360_F_579485091_aVxVKR8e2s886hee1j146OBeiJugJifG.jpg"
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+
+            <div class="projects-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIwVo_ByY9pj0dbeM3sI_PMAOJXxChHdF6KlZ8_O4EHtfVZESKnCgFAAyzUmObTTVN8co&usqp=CAU"
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+
+            <div class="projects-box">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/033/495/111/small_2x/blurred-office-elegance-a-panoramic-workspace-background-ai-generated-photo.jpg"
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+
+            <div class="projects-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6FBzgyVWlwM7Onl8ASuL84jNNmIRtAoSE2-JnJcWv8Xxe0NLOtA9sgjW0AxzN90gJrjQ&usqp=CAU"
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+
+            <div class="projects-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTENzyJhfxeXKnwatzWqSFgI0jeO12LJ_zjre_46MZMyw48ZyaTc4ptV8CoLxUHd3rZznY&usqp=CAU"
+                    alt="projects">
+                <div class="projects-layer">
+                    <p>ijrgnpwijenvijfn ergerjge9wlgh9 9irh gopeigighw[0igrj [ewokg eigh[9hg]</p>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section design -->
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact<span>Me</span></h2>
+
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+
+            <div class="input-box">
+                <input type="numbre" placeholder="Mobile Number">
+                <input type="text" placeholder="Email subject">
+            </div>
+
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+
+        </form>
+
+    </section>
+    <!--Footer Section design -->
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by @ayushbhange | All Righs Reserverd.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+
+    <!-- ========================================================================================== -->
+    <script>
+        // Toggle Navbar
+        let menuIcon = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('fa-xmark');
+            navbar.classList.toggle('active');
+        };
+
+        // Highlight Active Section on Scroll
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            sections.forEach(section => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 150;
+                let height = section.offsetHeight;
+                let id = section.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    });
+                }
+            });
+
+            // Sticky Header
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+
+            // Remove Toggle Icon and Navbar When Click Navbar Link (Scroll)
+            menuIcon.classList.remove('fa-xmark');
+            navbar.classList.remove('active');
+        };
+
+        // Scroll Reveal Animation
+        ScrollReveal({
+            distance: '800px',
+            duration: 2000,
+            delay: 200,
+        });
+
+        ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+        ScrollReveal().reveal('.home-img, .services-container, .project-box, .contact form', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+        ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+        // Typed.js Initialization
+        const typed = new Typed('.multiple-text', {
+            strings: ['Web Developer', 'Web Designer', 'Front-end Developer', 'Tester', 'Quality Assurance', 'Project Manager'],
+            typeSpeed: 70,
+            backSpeed: 70,
+            backDelay: 1000,
+            loop: true,
+        });
+
+
+    </script>
+</body>
+
+</html>
